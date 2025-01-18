@@ -1,0 +1,23 @@
+import axios from 'axios';
+import fs from 'fs/promises';
+
+
+const main = async () => { 
+    const url = (await fs.readFile('url.txt', 'utf-8'))
+        .replace(/\r/g, "")
+        .split('\n')
+        .filter(Boolean);
+    
+        
+
+    while (true) {
+        for (let i = 0; i < url.length; i++) {
+            const postUrl = await axios.post(`${url[i]}/v1/chat/completions`, { "messages":[{"role":"system", "content": "You are a helpful assistant."}, {"role":"user", "content": "Hello siapakah kamu "}] } );
+            const response = postUrl.data;
+            console.log(response.choices[0].message);
+        }
+    }
+   
+} 
+
+main();
