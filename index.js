@@ -1,6 +1,7 @@
 import axios from 'axios';
 import fs from 'fs/promises';
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const main = async () => { 
     const url = (await fs.readFile('url.txt', 'utf-8'))
@@ -19,6 +20,7 @@ const main = async () => {
             const response = postUrl.data;
             console.log(response.choices[0].message);
         }
+        await delay(60000);
     }
    
 } 
