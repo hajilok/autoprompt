@@ -12,7 +12,7 @@ npm install
 ```
 input GaianetAI Url wallet on url.txt
 
-Example Url : https://0xxxxxxxxx.gaianet.xyz
+Example Url : https://xxxx.gaianet.dommains
 
 ```
 nano url.txt
